@@ -6,9 +6,52 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    d:DesignHeight="420" d:DesignWidth="680"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="Black">
+        <StackPanel>
+            <StackPanel Background="Blue">
+                <TextBlock Text="ROTARY ENCODER GPIO TESTER" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
+            </StackPanel>
 
+            <StackPanel Margin="20" Orientation="Horizontal">
+                    <Image HorizontalAlignment="Right" Source="/Assets/encoder.png" Height="230" />
+                <StackPanel Margin="80,0,0,0">
+                    <TextBlock Text="A-CLK" Foreground="Wheat" FontSize="40"/>
+                    <Rectangle Name="clk"  Width="120" Height="120" Fill="Wheat" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Sequence: 0" Name="textSequenceCLK" FontSize="20" Foreground="White"/>
+                    <TextBlock Name="left" Text="Left: 0" Foreground="Green" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,0,0">
+                    <TextBlock Text="B-DT" Foreground="Wheat" FontSize="40"/>
+                    <Rectangle Name="dt" Width="120" Height="120" Fill="Wheat" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Sequence: 0" Name="textSequenceDT" FontSize="20" Foreground="White"/>
+                    <TextBlock Name="right" Text="Right : 0" Foreground="Green" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15,10,0,0">
+                    <TextBlock Text="CLK PIN" FontSize="25" Foreground="White"/>
+                    <TextBlock Text="DT PIN" Margin="20,0,0,0" FontSize="25" Foreground="White"/>
+                    <TextBlock Text="SW PIN" Margin="25,0,0,0" FontSize="25" Foreground="White"/>
+                </StackPanel>
+
+                <StackPanel Margin="15,0,0,0" Orientation="Horizontal">
+                    <ComboBox Name="clkPin" Width="85" Foreground="AliceBlue">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Name="dtPin" Width="85" Margin="20,0,0,0" >
+                        <ComboBoxItem>1</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Name="btnPin" Margin="20,0,0,0" Width="85">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                    </ComboBox>
+                <Button Content="START" Foreground="White" Margin="135,-25,0,0" FontSize="25" HorizontalAlignment="Center" Background="Blue" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
