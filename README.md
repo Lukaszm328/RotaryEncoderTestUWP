@@ -7,6 +7,15 @@ App for test rotary encoder on UWP platform with GPIO.
 ```csharp
 RotaryEncoder rotaryEncoder = new RotaryEncoder();
 ```
+Or
+```csharp
+RotaryEncoder rotaryEncoder = new RotaryEncoder(gpioController);
+```
+## Properties
+```csharp
+rotaryEncoder.DebounceTime = TimeSpan.FromTicks(1); // Every 1 tick refresh ststus
+```
+
 ## Methods
 - OpenPin()
 ```csharp
@@ -51,6 +60,7 @@ rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
             this.InitializeComponent();
 
             RotaryEncoder rotaryEncoder = new RotaryEncoder();
+            rotaryEncoder.DebounceTime = TimeSpan.FromTicks(4);
             rotaryEncoder.OpenPin(18, 25, 10); // Encoder pins
             rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
             rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
