@@ -3,7 +3,7 @@ App for test rotary encoder on UWP platform.
 
 ![Freelancer Preview](https://github.com/Lukaszm328/RotaryEncoderTestUWP/blob/master/RotaryEncoderTestUWP/Assets/EncoderTest.png?raw=true)
 
-Create new instance
+## Create new instance
 ```csharp
 RotaryEncoder rotaryEncoder = new RotaryEncoder();
 ```
