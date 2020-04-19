@@ -15,22 +15,26 @@
                 <TextBlock Text="ROTARY ENCODER GPIO TESTER" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
                 <Button Name="exitApp" HorizontalAlignment="Right" Margin="0,-40,0,0" Click="exitApp_Click">X</Button>
             </StackPanel>
-
+            
+            <StackPanel>
+                <TextBlock Name="sequenceText" Text="Sequence" Foreground="White" FontSize="20" HorizontalAlignment="Center"  Margin="5"/>
+            </StackPanel>
+            
             <StackPanel Margin="20" Orientation="Horizontal">
                 <Image Source="/Assets/encoder.png" Height="177" Width="153" />
-                <StackPanel Margin="80,0,0,0">
+                <StackPanel Margin="70,0,0,0">
                     <TextBlock Text="A-CLK" Foreground="Wheat" FontSize="40"/>
                     <Rectangle Name="clk"  Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
                     <TextBlock Text="Sequence: 0" Name="textSequenceCLK" FontSize="20" Foreground="White"/>
                     <TextBlock Name="left" Text="Left: 0" Foreground="Green" FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel Margin="40,0,0,0">
+                <StackPanel Margin="20,0,0,0">
                     <TextBlock Text="B-DT" Foreground="Wheat" FontSize="40"/>
                     <Rectangle Name="dt" Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
                     <TextBlock Text="Sequence: 0" Name="textSequenceDT" FontSize="20" Foreground="White"/>
                     <TextBlock Name="right" Text="Right : 0" Foreground="Green" FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel Margin="40,0,0,0">
+                <StackPanel Margin="20,0,0,0">
                     <TextBlock Text="BTN" Foreground="Wheat" FontSize="40"/>
                     <Rectangle Name="btn" Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
                     <TextBlock Text="Cl: 0" Name="textSequenceDTw" FontSize="20" Foreground="White"/>
