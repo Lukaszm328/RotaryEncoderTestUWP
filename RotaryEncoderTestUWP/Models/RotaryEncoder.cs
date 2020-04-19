@@ -9,16 +9,16 @@ namespace RotaryEncoderTestUWP.Models
         private GpioPin encoderCLK, encoderDT, encoderButton;
         private GpioPinValue aState;
         private GpioPinValue aLastState;
+        private TimeSpan debounceTimeout;
 
         public RotaryEncoder()
         {
             GPIO = GpioController.GetDefault();
 
-            encoderCLK.ValueChanged += EncoderCLK_ValueChanged;
-            encoderCLK.DebounceTimeout = TimeSpan.FromTicks(1);
-            
-            encoderDT.ValueChanged += EncoderDT_ValueChanged;
-            encoderDT.DebounceTimeout = TimeSpan.FromTicks(1);
+            if (GPIO == null)
+                return;
+
+            debounceTimeout = TimeSpan.FromTicks(1);
         }
 
         /// <summary>
@@ -31,7 +31,13 @@ namespace RotaryEncoderTestUWP.Models
         {
             encoderCLK = GPIO.OpenPin(CLK);
             encoderDT = GPIO.OpenPin(DT);
-            encoderButton = GPIO.OpenPin(btn); 
+            encoderButton = GPIO.OpenPin(btn);
+
+            encoderCLK.ValueChanged += EncoderCLK_ValueChanged;
+            encoderCLK.DebounceTimeout = debounceTimeout;
+
+            encoderDT.ValueChanged += EncoderDT_ValueChanged;
+            encoderDT.DebounceTimeout = debounceTimeout;
         }
 
         private void EncoderDT_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args) => EncoderCheckRotary(sender);
@@ -45,30 +51,30 @@ namespace RotaryEncoderTestUWP.Models
 
         private void EncoderCheckRotary(GpioPin gpioPin)
         {
+            EncoderRotaryEventArgs args = new EncoderRotaryEventArgs();
+
+            args.Button = EncoderRotaryEventArgs.ButtonState.Released;
+            args.ValueCLK = encoderCLK.Read();
+            args.ValueDT = encoderDT.Read();
+
             aState = encoderCLK.Read();
 
             if (aState != aLastState)
             {
                 if (encoderDT.Read() != aState)
-                {
-                    EncoderValueChange(gpioPin, EncoderRotaryEventArgs.LastPosition.Left);
-                }
+                    args.Position = EncoderRotaryEventArgs.LastPosition.Left;
                 else
-                {
-                    EncoderValueChange(gpioPin, EncoderRotaryEventArgs.LastPosition.Right);
-                }
+                    args.Position = EncoderRotaryEventArgs.LastPosition.Right;
             }
             aLastState = aState;
+
+            EncoderValueChange(gpioPin, args);
         }
 
-        private void EncoderValueChange(GpioPin gpioPin, EncoderRotaryEventArgs.LastPosition encoderValue)
+        private void EncoderValueChange(GpioPin gpioPin, EncoderRotaryEventArgs encoderEventArgs)
         {
-            EncoderRotaryEventArgs args = new EncoderRotaryEventArgs();
-
-            args.Position = encoderValue;
-            args.Button = EncoderRotaryEventArgs.ButtonState.Released;
-
-            ValueChanged.Invoke(gpioPin, args);
+            if (ValueChanged != null)
+                ValueChanged.Invoke(gpioPin, encoderEventArgs);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.Devices.Gpio;
 
 namespace RotaryEncoderTestUWP.Models
 {
@@ -16,6 +17,21 @@ namespace RotaryEncoderTestUWP.Models
         {
             get { return buttonState; }
             set { buttonState = value; }
+        }
+
+        private GpioPinValue valueDT;
+        public GpioPinValue ValueDT
+        {
+            get { return valueDT; }
+            set { valueDT = value; }
+        }
+
+        private GpioPinValue valueCLK;
+
+        public GpioPinValue ValueCLK
+        {
+            get { return valueCLK; }
+            set { valueCLK = value; }
         }
 
         public enum LastPosition
