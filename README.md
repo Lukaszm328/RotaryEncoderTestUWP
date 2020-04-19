@@ -1,5 +1,5 @@
 # RotaryEncoderTestUWP
-App for test rotary encoder on UWP platform.
+App for test rotary encoder on UWP platform with GPIO.
 
 ![Freelancer Preview](https://github.com/Lukaszm328/RotaryEncoderTestUWP/blob/master/RotaryEncoderTestUWP/Assets/EncoderTest.png?raw=true)
 
