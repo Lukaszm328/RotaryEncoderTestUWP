@@ -1,24 +1,26 @@
 # RotaryEncoderTestUWP
 App for test rotary encoder on UWP platform.
 
+![Freelancer Preview](https://github.com/Lukaszm328/RotaryEncoderTestUWP/blob/master/RotaryEncoderTestUWP/Assets/EncoderTest.png?raw=true)
+
 Create new instance
-```bash
+```csharp
 RotaryEncoder rotaryEncoder = new RotaryEncoder();
 ```
 == Options ==
 - OpenPin()
-```bash
+```csharp
 rotaryEncoder.OpenPin(2,3,4); // 2 - A, 3 - B, 4 - Button
 ```
 
 Events
 
 RotaryEncoder_ValueChanged
-```bash
+```csharp
 rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
 ```
 
 ButtonValueChanged
-```bash
+```csharp
 rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
 ```
