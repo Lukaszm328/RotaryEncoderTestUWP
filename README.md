@@ -7,6 +7,10 @@ App for test rotary encoder on UWP platform with GPIO.
 ```csharp
 RotaryEncoder rotaryEncoder = new RotaryEncoder();
 ```
+Or
+```csharp
+RotaryEncoder rotaryEncoder = new RotaryEncoder(gpioController);
+```
 ## Methods
 - OpenPin()
 ```csharp
