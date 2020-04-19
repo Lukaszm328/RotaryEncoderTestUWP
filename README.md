@@ -14,12 +14,12 @@ rotaryEncoder.OpenPin(2,3,4); // 2 - A, 3 - B, 4 - Button
 ```
 
 ## Events
-RotaryValueChanged
+- RotaryValueChanged
 ```csharp
 rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
 ```
 
-ButtonValueChanged
+- ButtonValueChanged
 ```csharp
 rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
 ```
