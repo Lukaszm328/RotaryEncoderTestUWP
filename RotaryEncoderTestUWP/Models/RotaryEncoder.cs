@@ -22,6 +22,11 @@ namespace RotaryEncoderTestUWP.Models
             debounceTimeout = TimeSpan.FromTicks(1);
         }
 
+        public RotaryEncoder(GpioController gpioController)
+        {
+            GPIO = gpioController;
+        }
+
         /// <summary>
         /// Open pin for encoder DT, CLK and button.
         /// </summary>
