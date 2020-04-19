@@ -1,5 +1,8 @@
 ﻿using RotaryEncoderTestUWP.Models;
+using System;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml.Controls;
+using static RotaryEncoderTestUWP.Models.EncoderRotaryEventArgs;
 
 namespace RotaryEncoderTestUWP
 {
@@ -14,17 +17,43 @@ namespace RotaryEncoderTestUWP
 
             RotaryEncoder rotaryEncoder = new RotaryEncoder();
             rotaryEncoder.OpenPin(18, 25, 10);
-            rotaryEncoder.ValueChanged += RotaryEncoder_ValueChanged;
+            rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
+            rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
+        }
+
+        private void RotaryEncoder_ButtonValueChanged(object sender, EncoderRotaryEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case ButtonState.Pressed:
+                    ButtonPressed();
+                    break;
+                case ButtonState.Released:
+                    ButtonRelased();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ButtonRelased()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonPressed()
+        {
+            throw new NotImplementedException();
         }
 
         private void RotaryEncoder_ValueChanged(object sender, EncoderRotaryEventArgs e)
         {
             switch (e.Position)
             {
-                case EncoderRotaryEventArgs.LastPosition.Left:
+                case LastPosition.Left:
                     EncoderTurnLeft();
                     break;
-                case EncoderRotaryEventArgs.LastPosition.Right:
+                case LastPosition.Right:
                     EncoderTurnRight();
                     break;
                 default:
@@ -40,6 +69,11 @@ namespace RotaryEncoderTestUWP
         private void EncoderTurnRight()
         {
             rightInt++;
+        }
+
+        private void exitApp_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
         }
     }
 }

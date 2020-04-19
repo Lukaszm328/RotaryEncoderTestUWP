@@ -11,23 +11,30 @@
 
     <Grid Background="Black">
         <StackPanel>
-            <StackPanel Background="Blue">
+            <StackPanel Background="Blue" >
                 <TextBlock Text="ROTARY ENCODER GPIO TESTER" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
+                <Button Name="exitApp" HorizontalAlignment="Right" Margin="0,-40,0,0" Click="exitApp_Click">X</Button>
             </StackPanel>
 
             <StackPanel Margin="20" Orientation="Horizontal">
-                    <Image HorizontalAlignment="Right" Source="/Assets/encoder.png" Height="230" />
+                <Image Source="/Assets/encoder.png" Height="177" Width="153" />
                 <StackPanel Margin="80,0,0,0">
                     <TextBlock Text="A-CLK" Foreground="Wheat" FontSize="40"/>
-                    <Rectangle Name="clk"  Width="120" Height="120" Fill="Wheat" HorizontalAlignment="Left"/>
+                    <Rectangle Name="clk"  Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
                     <TextBlock Text="Sequence: 0" Name="textSequenceCLK" FontSize="20" Foreground="White"/>
                     <TextBlock Name="left" Text="Left: 0" Foreground="Green" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Margin="40,0,0,0">
                     <TextBlock Text="B-DT" Foreground="Wheat" FontSize="40"/>
-                    <Rectangle Name="dt" Width="120" Height="120" Fill="Wheat" HorizontalAlignment="Left"/>
+                    <Rectangle Name="dt" Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
                     <TextBlock Text="Sequence: 0" Name="textSequenceDT" FontSize="20" Foreground="White"/>
                     <TextBlock Name="right" Text="Right : 0" Foreground="Green" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Margin="40,0,0,0">
+                    <TextBlock Text="BTN" Foreground="Wheat" FontSize="40"/>
+                    <Rectangle Name="btn" Width="100" Height="100" Fill="Wheat" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Cl: 0" Name="textSequenceDTw" FontSize="20" Foreground="White"/>
+                    <TextBlock Name="btn2" Text="Clicked : NO" Foreground="Green" FontWeight="Bold"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel>
@@ -49,7 +56,8 @@
                         <ComboBoxItem>1</ComboBoxItem>
                         <ComboBoxItem>2</ComboBoxItem>
                     </ComboBox>
-                <Button Content="START" Foreground="White" Margin="135,-25,0,0" FontSize="25" HorizontalAlignment="Center" Background="Blue" />
+                    <Button Content="START" Foreground="White" Margin="105,-25,0,0" FontSize="25" HorizontalAlignment="Center" Background="Blue"/>
+                    <Button Content="STOP" Foreground="White" Margin="35,-25,0,0" IsEnabled="False" FontSize="25" HorizontalAlignment="Center" Background="Red" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
