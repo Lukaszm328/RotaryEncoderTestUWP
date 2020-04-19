@@ -7,13 +7,13 @@ Create new instance
 ```csharp
 RotaryEncoder rotaryEncoder = new RotaryEncoder();
 ```
-##Methods
+## Methods
 - OpenPin()
 ```csharp
 rotaryEncoder.OpenPin(2,3,4); // 2 - A, 3 - B, 4 - Button
 ```
 
-##Events
+## Events
 RotaryValueChanged
 ```csharp
 rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
@@ -23,7 +23,7 @@ ButtonValueChanged
 ```csharp
 rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
 ```
-##Enums
+## Enums
 ```csharp
         public enum LastPosition
         {
@@ -39,12 +39,12 @@ rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
         
         public enum Mode
         {
-        Encoder,
-        Button
+            Encoder,
+            Button
         }
 ```
 
-##Example
+## Example
 ```csharp
        public MainPage()
         {
@@ -105,6 +105,4 @@ rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
         {
             // Rotary right
         }
-
 ```
-
