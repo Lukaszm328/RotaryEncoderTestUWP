@@ -40,9 +40,11 @@ namespace RotaryEncoderTestUWP.Models
             encoderButton.DebounceTimeout = debounceTimeout;
 
             encoderCLK = GPIO.OpenPin(CLK);
+            encoderCLK.SetDriveMode(GpioPinDriveMode.Input);
             encoderCLK.ValueChanged += EncoderCLK_ValueChanged;
 
             encoderDT = GPIO.OpenPin(DT);
+            encoderDT.SetDriveMode(GpioPinDriveMode.Input);
             encoderDT.ValueChanged += EncoderDT_ValueChanged;
         }
 

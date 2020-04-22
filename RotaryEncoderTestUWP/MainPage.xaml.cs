@@ -17,8 +17,8 @@ namespace RotaryEncoderTestUWP
             this.InitializeComponent();
 
             RotaryEncoder rotaryEncoder = new RotaryEncoder();
-            //rotaryEncoder.DebounceTime = TimeSpan.FromTicks(4000);
-            //rotaryEncoder.OpenPin(18, 25, 10);
+            rotaryEncoder.DebounceTime = TimeSpan.FromTicks(1);
+            rotaryEncoder.OpenPin(18, 25, 10);
             rotaryEncoder.RotaryValueChanged += RotaryEncoder_ValueChanged;
             rotaryEncoder.ButtonValueChanged += RotaryEncoder_ButtonValueChanged;
         }
